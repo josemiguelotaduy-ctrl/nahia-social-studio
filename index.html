@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAHIA HOME — Editorial Social Studio (Instagram & TikTok)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F6F3EC;
+      --card: #FAF8F4;
+      --card-alt: #EFEAE0;
+      --ink: #1C1916;
+      --muted: #766E63;
+      --border: #E2DACB;
+      --accent: #3A4436; /* Olive Westwing Luxury */
+      --accent-hover: #293126;
+      --gold: #9A7B4F;
+      --tiktok: #111111;
+      --ig: #26221E;
+      --success: #2F5D41;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+    /* Header */
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand-left {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+    }
+    .brand-logo {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    .brand-sub {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pill-badge {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 13px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .pill-badge.published {
+      background: #E5EFE8;
+      border-color: #B7D3C0;
+      color: var(--success);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 28px 36px;
+    }
+
+    /* 7-Day Calendar Strip */
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .day-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .day-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold);
+    }
+    .day-card.active {
+      border: 2px solid var(--ink);
+      background: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(28, 25, 22, 0.08);
+    }
+    .day-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 6px;
+      background: var(--card-alt);
+    }
+    .day-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .day-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .day-dot.done {
+      background: var(--success);
+    }
+    .day-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    /* Main Workspace Grid: Left IG, Right TikTok */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .platform-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(28, 25, 22, 0.03);
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .panel-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .platform-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .mode-tabs {
+      display: flex;
+      gap: 6px;
+      background: var(--card-alt);
+      padding: 4px;
+      border-radius: 8px;
+    }
+    .mode-tab {
+      border: none;
+      background: transparent;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .mode-tab.active {
+      background: #FFFFFF;
+      color: var(--ink);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    /* Phone + Controls Layout inside each Panel */
+    .panel-body {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    /* Phone Frame */
+    .phone-frame {
+      width: 350px;
+      background: #FFFFFF;
+      border: 8px solid #1E1C1A;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: 0 14px 36px rgba(28, 25, 22, 0.12);
+      position: relative;
+    }
+    .ig-top-bar {
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #EFEFEF;
+      background: #FFFFFF;
+    }
+    .ig-user {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .ig-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #FAF8F4;
+      border: 1px solid #E2DACB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+    .ig-username {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #111;
+    }
+    .ig-loc {
+      font-size: 10px;
+      color: #777;
+    }
+
+    /* Carousel Viewport */
+    .ig-viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: #FAF7F2;
+      overflow: hidden;
+    }
+    .ig-viewport.reel-mode {
+      aspect-ratio: 9 / 16;
+      background: #111;
+    }
+    .ig-slide-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+    }
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      color: #111;
+      z-index: 10;
+      user-select: none;
+    }
+    .nav-arrow:hover { background: #FFF; }
+    .nav-arrow.prev { left: 10px; }
+    .nav-arrow.next { right: 10px; }
+
+    .slide-counter-pill {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(24, 22, 20, 0.72);
+      color: #FFF;
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 99px;
+      font-weight: 500;
+    }
+    .product-tag-pill {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(24, 22, 20, 0.78);
+      color: #FFF;
+      font-size: 10.5px;
+      padding: 5px 10px;
+      border-radius: 99px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      letter-spacing: 0.03em;
+    }
+
+    .ig-actions-bar {
+      padding: 10px 14px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFF;
+    }
+    .ig-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .ig-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #D8D4CE;
+      cursor: pointer;
+    }
+    .ig-dot.active {
+      background: #1C1916;
+    }
+    .ig-caption-preview {
+      padding: 4px 14px 14px;
+      font-size: 11.5px;
+      line-height: 1.45;
+      color: #222;
+      background: #FFF;
+      max-height: 92px;
+      overflow-y: auto;
+    }
+
+    /* Slide Strip */
+    .slide-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .strip-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 5px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.65;
+      transition: all 0.15s;
+    }
+    .strip-thumb.active, .strip-thumb:hover {
+      opacity: 1;
+      border-color: var(--ink);
+    }
+
+    /* TikTok Phone Viewport */
+    .tt-viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #12100E;
+      overflow: hidden;
+    }
+    .tt-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .tt-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 16px 52px 18px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.18) 32%, transparent 60%);
+      color: #FFF;
+    }
+    .tt-handle {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .tt-desc {
+      font-size: 11px;
+      line-height: 1.38;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tt-sound {
+      font-size: 10.5px;
+      color: #EAE4DC;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tt-right-rail {
+      position: absolute;
+      right: 10px;
+      bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      color: #FFF;
+      font-size: 10px;
+      pointer-events: none;
+    }
+    .tt-icon-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.16);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    /* Right Column inside each Panel: Caption, Tagged Products & One-Click Post */
+    .controls-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .field-label {
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: block;
+      font-weight: 600;
+    }
+    .caption-box {
+      width: 100%;
+      min-height: 148px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--ink);
+      resize: vertical;
+    }
+    .products-mini-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .prod-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #F2EDE4;
+    }
+    .prod-row:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .prod-link {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .prod-link:hover {
+      text-decoration: underline;
+    }
+    .prod-price {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Primary Action Buttons */
+    .btn-post {
+      width: 100%;
+      padding: 14px 18px;
+      border: none;
+      border-radius: 9px;
+      background: var(--ink);
+      color: #FAF8F4;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-post:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+    .btn-secondary-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .btn-outline {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #FFFFFF;
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      background: var(--card-alt);
+    }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      max-width: 440px;
+      background: #1C1916;
+      color: #FAF8F4;
+      padding: 16px 20px;
+      border-radius: 10px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+      font-size: 13px;
+      line-height: 1.45;
+      display: none;
+      z-index: 999;
+      border-left: 4px solid #9A7B4F;
+    }
+
+    /* Lightbox Modal for Full-Screen Slide Inspection */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 18, 15, 0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 32px;
+      cursor: zoom-out;
+    }
+    #lightbox img {
+      max-height: 92vh;
+      max-width: 92vw;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    @media (max-width: 1200px) {
+      .studio-grid { grid-template-columns: 1fr; }
+      .days-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* Suite Top Bar */
+    .portal-nav-bar {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 36px;
+      font-size: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 101;
+    }
+    .portal-nav-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .portal-nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .portal-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      display: inline-block;
+      box-shadow: 0 0 0 3px rgba(47, 93, 65, 0.15);
+    }
+    .portal-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .portal-nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .portal-nav-link:hover {
+      color: var(--ink);
+      background: var(--bg);
+    }
+    .portal-nav-link.active {
+      color: var(--ink);
+      background: var(--bg);
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+
+    /* Auth Overlay */
+    #loginOverlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .loginBox {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 390px;
+      box-shadow: 0 16px 40px rgba(28, 25, 22, 0.05);
+      text-align: center;
+    }
+    .login-brand {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .login-sub {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 22px;
+    }
+    .loginBox input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      background: #FAFAFA;
+      color: var(--ink);
+      outline: none;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+    .loginBox input:focus {
+      border-color: var(--accent);
+      background: #FFF;
+    }
+    .loginBox button {
+      width: 100%;
+      padding: 12px;
+      background: var(--accent);
+      color: #FFF;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13.5px;
+      cursor: pointer;
+    }
+    .loginBox button:hover {
+      background: var(--accent-hover);
+    }
+    .loginBox .err {
+      color: #B8473A;
+      font-size: 12px;
+      margin-top: 10px;
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Auth Overlay -->
+  <div id="loginOverlay">
+    <div class="loginBox">
+      <div class="login-brand">N A H I A &nbsp; H O M E</div>
+      <div class="login-sub">Editorial Social Studio · Instagram &amp; TikTok</div>
+      <form onsubmit="handleLogin(event)">
+        <input type="password" id="pwdInput" placeholder="Introduce la contraseña" autocomplete="current-password" autofocus required>
+        <button type="submit">Entrar al Studio</button>
+        <div id="loginErr" class="err">Contraseña incorrecta</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Suite Top Bar -->
+  <nav class="portal-nav-bar">
+    <div class="portal-nav-inner">
+      <div class="portal-nav-brand">
+        <span class="portal-dot"></span>
+        <span class="portal-brand-text">NAHIA HOME · SUITE</span>
+      </div>
+      <div class="portal-nav-links">
+        <a href="https://josemiguelotaduy-ctrl.github.io/" class="portal-nav-link">🏠 Portal Hub</a>
+        <a href="https://josemiguelotaduy-ctrl.github.io/nahia-dashboard/" class="portal-nav-link">📈 P&L</a>
+        <a href="https://josemiguelotaduy-ctrl.github.io/nahia-ads-test/" class="portal-nav-link">🎯 Ads Test Lab</a>
+        <a href="https://josemiguelotaduy-ctrl.github.io/nahia-social-studio/" class="portal-nav-link active">🎞️ Social Studio</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <header>
+    <div class="brand-left">
+      <div class="brand-logo">N A H I A &nbsp; H O M E</div>
+      <div class="brand-sub">Editorial Social Studio · Westwing Playbook</div>
+    </div>
+    <div class="header-actions">
+      <span id="currentEditBadge" class="pill-badge">THE TABLE EDIT</span>
+      <span id="currentStatusBadge" class="pill-badge">READY TO POST</span>
+      <button class="btn-outline" onclick="markDayPublished()">✓ Mark Day as Posted</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- 7-Day Selector Strip -->
+    <div class="section-kicker">
+      <span>WEEK 1 EDITORIAL CALENDAR (CLICK ANY DAY TO PREVIEW & POST)</span>
+      <span>4:5 CAROUSELS (1080×1350) + 9:16 VERTICAL VIDEOS (MP4)</span>
+    </div>
+    <div id="daysGrid" class="days-grid"></div>
+
+    <!-- Side-by-Side Instagram & TikTok Live Studio -->
+    <div class="studio-grid">
+
+      <!-- LEFT: INSTAGRAM PANEL -->
+      <div class="platform-panel">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <span class="platform-title">Instagram · @nahiahome</span>
+          </div>
+          <div class="mode-tabs">
+            <button id="igTabCarousel" class="mode-tab active" onclick="setIgMode('carousel')">Carousel (4 Slides)</button>
+            <button id="igTabReel" class="mode-tab" onclick="setIgMode('reel')">9:16 Reel</button>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <!-- IG Phone Frame -->
+          <div>
+            <div class="phone-frame">
+              <div class="ig-top-bar">
+                <div class="ig-user">
+                  <div class="ig-avatar">NH</div>
+                  <div>
+                    <div class="ig-username">nahiahome</div>
+                    <div id="igPillarSub" class="ig-loc">L'Art de la Table · Europe</div>
+                  </div>
+                </div>
+                <span style="font-weight:bold; color:#555;">•••</span>
+              </div>
+
+              <!-- Carousel or Reel Viewport -->
+              <div id="igViewport" class="ig-viewport">
+                <img id="igActiveSlide" class="ig-slide-img" src="" alt="Instagram Slide" onclick="openLightbox(this.src)" />
+                <video id="igReelVideo" class="tt-video" style="display:none;" controls loop muted playsinline></video>
+                <div id="igPrevBtn" class="nav-arrow prev" onclick="changeSlide(-1)">‹</div>
+                <div id="igNextBtn" class="nav-arrow next" onclick="changeSlide(1)">›</div>
+                <div id="igSlideCounter" class="slide-counter-pill">1 / 4</div>
+                <div class="product-tag-pill">🛍️ 4 Tagged Products</div>
+              </div>
+
+              <div class="ig-actions-bar">
+                <div style="font-size: 16px; display:flex; gap:12px;">
+                  <span>♡</span><span>💬</span><span>⌲</span>
+                </div>
+                <div id="igDots" class="ig-dots"></div>
+                <div style="font-size: 16px;">🔖</div>
+              </div>
+
+              <div id="igCaptionMini" class="ig-caption-preview"></div>
+            </div>
+
+            <!-- 4-Slide Thumbnail Strip -->
+            <div id="igSlideStrip" class="slide-strip"></div>
+          </div>
+
+          <!-- IG Controls & One-Click Publish -->
+          <div class="controls-col">
+            <div>
+              <label class="field-label">SLIDE GUIDE (CLICK THUMBNAIL TO INSPECT)</label>
+              <div style="font-size:12px; color:var(--muted); line-height:1.5;">
+                • <b>Slide 1:</b> Sunlit Editorial Cover (Didot Serif)<br>
+                • <b>Slide 2:</b> Craftsmanship & Materiality Frame<br>
+                • <b>Slide 3:</b> Heritage / Cultural Story Frame<br>
+                • <b>Slide 4:</b> Westwing <i>"Shop the Edit"</i> 2×2 Grid
+              </div>
+            </div>
+
+            <div>
+              <label class="field-label">EDITORIAL CAPTION (NO COMMENT-BAIT)</label>
+              <textarea id="igCaptionInput" class="caption-box" oninput="syncCaptions()"></textarea>
+            </div>
+
+            <div>
+              <label class="field-label">NATIVE PRODUCT TAGS FOR THIS POST</label>
+              <div id="igProductsList" class="products-mini-list"></div>
+            </div>
+
+            <button class="btn-post" onclick="publishInstagram()">
+              <span>✦ Click to Post on Instagram</span>
+            </button>
+
+            <div class="btn-secondary-row">
+              <button class="btn-outline" onclick="copyText('igCaptionInput', 'Instagram caption copiado!')">📋 Copy Caption</button>
+              <button class="btn-outline" onclick="downloadCurrentSlide()">⬇️ Download Slide</button>
+            </div>
+            <div style="margin-top:8px;">
+              <button class="btn-outline" style="width:100%;" onclick="downloadAllSlides()">⬇️ Download All 4 Slides (HD)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: TIKTOK PANEL -->
+      <div class="platform-panel">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <span class="platform-title">TikTok · @nahiahome</span>
+          </div>
+          <div class="mode-tabs">
+            <button id="ttTabVideo" class="mode-tab active" onclick="setTtMode('video')">9:16 Video</button>
+            <button id="ttTabPhoto" class="mode-tab" onclick="setTtMode('photo')">Photo Mode (4 Slides)</button>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <!-- TikTok Phone Frame -->
+          <div>
+            <div class="phone-frame" style="background:#111;">
+              <div class="tt-viewport">
+                <video id="ttVideoPlayer" class="tt-video" autoplay loop muted playsinline controls></video>
+                <img id="ttPhotoSlide" class="ig-slide-img" style="display:none;" src="" alt="TikTok Photo Mode" onclick="openLightbox(this.src)" />
+
+                <div class="tt-overlay">
+                  <div class="tt-handle">@nahiahome</div>
+                  <div id="ttOverlayCaption" class="tt-desc"></div>
+                  <div class="tt-sound">♪ <span id="ttSoundLabel"></span></div>
+                </div>
+
+                <div class="tt-right-rail">
+                  <div class="tt-icon-circle">♥</div>
+                  <div class="tt-icon-circle">🔖</div>
+                  <div class="tt-icon-circle">↗</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TikTok Controls & One-Click Publish -->
+          <div class="controls-col">
+            <div>
+              <label class="field-label">RECOMMENDED EDITORIAL SOUNDTRACK</label>
+              <div id="ttAudioBox" style="background:#FFF; border:1px solid var(--border); padding:10px 12px; border-radius:8px; font-size:12.5px; font-weight:500;"></div>
+            </div>
+
+            <div>
+              <label class="field-label">TIKTOK CAPTION & SEARCH KEYWORDS</label>
+              <textarea id="ttCaptionInput" class="caption-box" oninput="syncCaptions()"></textarea>
+            </div>
+
+            <div>
+              <label class="field-label">CONVERSION DESTINATION (BIO LINK)</label>
+              <div class="products-mini-list">
+                <div class="prod-row">
+                  <span>Bio Link Target</span>
+                  <a class="prod-link" href="https://nahiahome.com" target="_blank">nahiahome.com ↗</a>
+                </div>
+                <div class="prod-row">
+                  <span>Video Format</span>
+                  <span style="color:var(--muted);">9:16 Vertical H.264 MP4 (24fps)</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-post" onclick="publishTikTok()">
+              <span>✦ Click to Post on TikTok</span>
+            </button>
+
+            <div class="btn-secondary-row">
+              <button class="btn-outline" onclick="copyText('ttCaptionInput', 'TikTok caption copiado!')">📋 Copy Caption</button>
+              <button class="btn-outline" onclick="downloadVideo()">⬇️ Download 9:16 Reel (MP4)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast & Lightbox -->
+  <div id="toast"></div>
+  <div id="lightbox" onclick="this.style.display='none'">
+    <img id="lightboxImg" src="" alt="Full Preview" />
+  </div>
+
+  <script>
+    let posts = [];
+    let currentDayIdx = 0;
+    let currentSlideIdx = 0;
+    let igMode = 'carousel';
+    let ttMode = 'video';
+
+    const CACHE_VER = Date.now();
+    const AUTH_HASH = "3f9fe0cf8466ed9e8e396636892f82d9e7e26b86c974f012efa21dd85d87296d"; // nahia2026
+
+    async function sha256(str) {
+      const buf = new TextEncoder().encode(str);
+      const hashBuf = await crypto.subtle.digest("SHA-256", buf);
+      return Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    async function checkAuth() {
+      const saved = localStorage.getItem("nahia_auth");
+      if (saved === AUTH_HASH) {
+        const overlay = document.getElementById("loginOverlay");
+        if (overlay) overlay.style.display = "none";
+      } else {
+        const overlay = document.getElementById("loginOverlay");
+        if (overlay) overlay.style.display = "flex";
+      }
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const val = document.getElementById("pwdInput").value;
+      const hash = await sha256(val);
+      if (hash === AUTH_HASH) {
+        localStorage.setItem("nahia_auth", hash);
+        document.getElementById("loginOverlay").style.display = "none";
+      } else {
+        document.getElementById("loginErr").style.display = "block";
+      }
+    }
+
+    async function init() {
+      checkAuth();
+      let raw;
+      try {
+        const res = await fetch("posts_manifest.json?v=" + CACHE_VER);
+        if (res.ok) {
+          raw = await res.json();
+        } else {
+          throw new Error("fallback");
+        }
+      } catch (err) {
+        const res = await fetch("/api/posts?v=" + CACHE_VER);
+        raw = await res.json();
+      }
+      const list = Array.isArray(raw) ? raw : (raw.posts || []);
+      posts = list.map(p => ({
+        ...p,
+        ig_slides: p.ig_slides.map(s => `${s}?v=${CACHE_VER}`),
+        video_url: `${p.video_url}?v=${CACHE_VER}`
+      }));
+      renderCalendarStrip();
+      selectDay(0);
+    }
+
+    function downloadCurrentSlide() {
+      const p = posts[currentDayIdx];
+      const src = p.ig_slides[currentSlideIdx].split("?")[0];
+      const a = document.createElement("a");
+      a.href = src;
+      a.download = `nahia_day_${p.day}_slide_${currentSlideIdx + 1}.jpg`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast(`Descargando Slide ${currentSlideIdx + 1} en HD...`);
+    }
+
+    function downloadVideo() {
+      const p = posts[currentDayIdx];
+      const src = p.video_url.split("?")[0];
+      const a = document.createElement("a");
+      a.href = src;
+      a.download = `nahia_day_${p.day}_reel.mp4`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast(`Descargando Reel 9:16 (Día ${p.day})...`);
+    }
+
+    async function downloadAllSlides() {
+      const p = posts[currentDayIdx];
+      for (let i = 0; i < p.ig_slides.length; i++) {
+        const src = p.ig_slides[i].split("?")[0];
+        const a = document.createElement("a");
+        a.href = src;
+        a.download = `nahia_day_${p.day}_slide_${i + 1}.jpg`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        await new Promise(r => setTimeout(r, 220));
+      }
+      showToast(`Descargadas las 4 slides del Día ${p.day}`);
+    }
+
+    function renderCalendarStrip() {
+      const grid = document.getElementById('daysGrid');
+      grid.innerHTML = posts.map((p, idx) => `
+        <div class="day-card ${idx === currentDayIdx ? 'active' : ''}" onclick="selectDay(${idx})">
+          <div class="day-meta">
+            <span>${p.weekday}</span>
+            <span class="day-dot ${p.status === 'PUBLISHED' ? 'done' : ''}" title="${p.status}"></span>
+          </div>
+          <img class="day-thumb" src="${p.ig_slides[0]}" alt="${p.title}" />
+          <div style="font-size:9.5px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;">${p.edit_number}</div>
+          <div class="day-title">${p.title}</div>
+        </div>
+      `).join('');
+    }
+
+    function selectDay(idx) {
+      currentDayIdx = idx;
+      currentSlideIdx = 0;
+      const p = posts[idx];
+      renderCalendarStrip();
+
+      document.getElementById('currentEditBadge').textContent = `${p.edit_number} · ${p.weekday}`;
+      const st = document.getElementById('currentStatusBadge');
+      st.textContent = p.status;
+      st.className = 'pill-badge ' + (p.status === 'PUBLISHED' ? 'published' : '');
+
+      document.getElementById('igPillarSub').textContent = `${p.pillar} · Nahia Home`;
+      document.getElementById('igCaptionInput').value = p.ig_caption;
+      document.getElementById('ttCaptionInput').value = p.tiktok_caption;
+      document.getElementById('ttAudioBox').textContent = '♪ ' + p.audio_suggestion;
+      document.getElementById('ttSoundLabel').textContent = p.audio_suggestion;
+      document.getElementById('ttDownloadBtn').href = p.video_url;
+
+      // Render Products list
+      document.getElementById('igProductsList').innerHTML = p.products.map(prod => `
+        <div class="prod-row">
+          <a class="prod-link" href="https://nahiahome.com${prod.handle}" target="_blank">${prod.title} ↗</a>
+          <span class="prod-price">${prod.material_note || prod.brand}</span>
+        </div>
+      `).join('');
+
+      // Load video
+      const ttVid = document.getElementById('ttVideoPlayer');
+      ttVid.src = p.video_url;
+      ttVid.play().catch(() => {});
+
+      const igVid = document.getElementById('igReelVideo');
+      igVid.src = p.video_url;
+
+      syncCaptions();
+      updateSlideView();
+    }
+
+    function updateSlideView() {
+      const p = posts[currentDayIdx];
+      const slides = p.ig_slides;
+      document.getElementById('igActiveSlide').src = slides[currentSlideIdx];
+      document.getElementById('ttPhotoSlide').src = slides[currentSlideIdx];
+      document.getElementById('igSlideCounter').textContent = `${currentSlideIdx + 1} / ${slides.length}`;
+
+      document.getElementById('igDots').innerHTML = slides.map((_, i) => `
+        <div class="ig-dot ${i === currentSlideIdx ? 'active' : ''}" onclick="setSlide(${i})"></div>
+      `).join('');
+
+      document.getElementById('igSlideStrip').innerHTML = slides.map((s, i) => `
+        <img class="strip-thumb ${i === currentSlideIdx ? 'active' : ''}" src="${s}" onclick="setSlide(${i})" />
+      `).join('');
+    }
+
+    function changeSlide(delta) {
+      const slides = posts[currentDayIdx].ig_slides;
+      currentSlideIdx = (currentSlideIdx + delta + slides.length) % slides.length;
+      updateSlideView();
+    }
+
+    function setSlide(i) {
+      currentSlideIdx = i;
+      updateSlideView();
+    }
+
+    function setIgMode(mode) {
+      igMode = mode;
+      document.getElementById('igTabCarousel').classList.toggle('active', mode === 'carousel');
+      document.getElementById('igTabReel').classList.toggle('active', mode === 'reel');
+      const vp = document.getElementById('igViewport');
+      const img = document.getElementById('igActiveSlide');
+      const vid = document.getElementById('igReelVideo');
+      const showCarousel = mode === 'carousel';
+      vp.classList.toggle('reel-mode', !showCarousel);
+      img.style.display = showCarousel ? 'block' : 'none';
+      vid.style.display = showCarousel ? 'none' : 'block';
+      document.getElementById('igPrevBtn').style.display = showCarousel ? 'flex' : 'none';
+      document.getElementById('igNextBtn').style.display = showCarousel ? 'flex' : 'none';
+      document.getElementById('igSlideCounter').style.display = showCarousel ? 'block' : 'none';
+      if (!showCarousel) vid.play().catch(() => {});
+      else vid.pause();
+    }
+
+    function setTtMode(mode) {
+      ttMode = mode;
+      document.getElementById('ttTabVideo').classList.toggle('active', mode === 'video');
+      document.getElementById('ttTabPhoto').classList.toggle('active', mode === 'photo');
+      const vid = document.getElementById('ttVideoPlayer');
+      const img = document.getElementById('ttPhotoSlide');
+      vid.style.display = mode === 'video' ? 'block' : 'none';
+      img.style.display = mode === 'photo' ? 'block' : 'none';
+      if (mode === 'video') vid.play().catch(() => {});
+      else vid.pause();
+    }
+
+    function syncCaptions() {
+      const igCap = document.getElementById('igCaptionInput').value;
+      const ttCap = document.getElementById('ttCaptionInput').value;
+      document.getElementById('igCaptionMini').innerHTML = `<b>nahiahome</b> ${igCap.replace(/\n/g, '<br>')}`;
+      document.getElementById('ttOverlayCaption').textContent = ttCap;
+    }
+
+    async function publishInstagram() {
+      const p = posts[currentDayIdx];
+      const caption = document.getElementById('igCaptionInput').value;
+      const res = await fetch('/api/publish/instagram', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ day: p.day, caption, mode: igMode })
+      });
+      const data = await res.json();
+      showToast(data.message);
+    }
+
+    async function publishTikTok() {
+      const p = posts[currentDayIdx];
+      const caption = document.getElementById('ttCaptionInput').value;
+      const res = await fetch('/api/publish/tiktok', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ day: p.day, caption, mode: ttMode })
+      });
+      const data = await res.json();
+      showToast(data.message);
+    }
+
+    async function revealInFinder() {
+      const p = posts[currentDayIdx];
+      await fetch('/api/reveal-folder', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ day: p.day })
+      });
+      showToast(`Opened Day ${p.day} high-res slides & MP4 in Finder.`);
+    }
+
+    async function markDayPublished() {
+      const p = posts[currentDayIdx];
+      const newStatus = p.status === 'PUBLISHED' ? 'READY TO POST' : 'PUBLISHED';
+      const res = await fetch('/api/update-status', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          day: p.day,
+          status: newStatus,
+          ig_caption: document.getElementById('igCaptionInput').value,
+          tiktok_caption: document.getElementById('ttCaptionInput').value
+        })
+      });
+      const data = await res.json();
+      posts = data.posts;
+      selectDay(currentDayIdx);
+      showToast(`Day ${p.day} marked as ${newStatus}.`);
+    }
+
+    function copyText(id, msg) {
+      const el = document.getElementById(id);
+      navigator.clipboard.writeText(el.value);
+      showToast(msg);
+    }
+
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => { t.style.display = 'none'; }, 6000);
+    }
+
+    init();
+  </script>
+</body>
+</html>
