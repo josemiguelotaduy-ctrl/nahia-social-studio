@@ -987,7 +987,10 @@
     let ttMode = 'video';
 
     const CACHE_VER = Date.now();
-    const AUTH_HASH = "3f9fe0cf8466ed9e8e396636892f82d9e7e26b86c974f012efa21dd85d87296d"; // nahia2026
+    const VALID_HASHES = [
+      "0450cf0cacff771a86995449e3b7e4f1cd939574bf4cc5ab002fcae9c746fa0e", // Nahiajose16
+      "5a0f23803e6a3b703a720fec9799958d6bd8d4b1a76699f180277a167c1bd887"  // nahiajose16
+    ];
 
     async function sha256(str) {
       const buf = new TextEncoder().encode(str);
@@ -996,22 +999,21 @@
     }
 
     async function checkAuth() {
-      const saved = localStorage.getItem("nahia_auth");
-      if (saved === AUTH_HASH) {
-        const overlay = document.getElementById("loginOverlay");
+      const saved = localStorage.getItem("nahia_social_auth");
+      const overlay = document.getElementById("loginOverlay");
+      if (VALID_HASHES.includes(saved)) {
         if (overlay) overlay.style.display = "none";
       } else {
-        const overlay = document.getElementById("loginOverlay");
         if (overlay) overlay.style.display = "flex";
       }
     }
 
     async function handleLogin(e) {
       e.preventDefault();
-      const val = document.getElementById("pwdInput").value;
+      const val = document.getElementById("pwdInput").value.trim();
       const hash = await sha256(val);
-      if (hash === AUTH_HASH) {
-        localStorage.setItem("nahia_auth", hash);
+      if (VALID_HASHES.includes(hash)) {
+        localStorage.setItem("nahia_social_auth", hash);
         document.getElementById("loginOverlay").style.display = "none";
       } else {
         document.getElementById("loginErr").style.display = "block";
