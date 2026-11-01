@@ -964,7 +964,7 @@
 
             <div class="btn-secondary-row">
               <button class="btn-outline" onclick="copyText('ttCaptionInput', 'TikTok caption copiado!')">📋 Copy Caption</button>
-              <button class="btn-outline" onclick="downloadVideo()">⬇️ Download 9:16 Reel (MP4)</button>
+              <button id="ttDownloadBtn" class="btn-outline" onclick="downloadVideo()">⬇️ Download 9:16 Reel (MP4)</button>
             </div>
           </div>
         </div>
@@ -1018,25 +1018,38 @@
       }
     }
 
+    function resolveAsset(u) {
+      if (!u) return "";
+      if (u.startsWith("http://") || u.startsWith("https://")) return u;
+      const clean = u.replace(/^\.?\//, "");
+      const prefix = location.pathname.includes("/nahia-social-studio") ? "/nahia-social-studio/" : "./";
+      return prefix + clean;
+    }
+
     async function init() {
       checkAuth();
       let raw;
       try {
-        const res = await fetch("posts_manifest.json?v=" + CACHE_VER);
+        const manifestUrl = resolveAsset("posts_manifest.json") + "?v=" + CACHE_VER;
+        const res = await fetch(manifestUrl);
         if (res.ok) {
           raw = await res.json();
         } else {
           throw new Error("fallback");
         }
       } catch (err) {
-        const res = await fetch("/api/posts?v=" + CACHE_VER);
-        raw = await res.json();
+        try {
+          const res = await fetch("/api/posts?v=" + CACHE_VER);
+          raw = await res.json();
+        } catch (e2) {
+          console.error("Failed to load posts", e2);
+        }
       }
-      const list = Array.isArray(raw) ? raw : (raw.posts || []);
+      const list = Array.isArray(raw) ? raw : ((raw && raw.posts) || []);
       posts = list.map(p => ({
         ...p,
-        ig_slides: p.ig_slides.map(s => `${s}?v=${CACHE_VER}`),
-        video_url: `${p.video_url}?v=${CACHE_VER}`
+        ig_slides: (p.ig_slides || []).map(s => `${resolveAsset(s)}?v=${CACHE_VER}`),
+        video_url: `${resolveAsset(p.video_url)}?v=${CACHE_VER}`
       }));
       renderCalendarStrip();
       selectDay(0);
@@ -1100,35 +1113,60 @@
       currentDayIdx = idx;
       currentSlideIdx = 0;
       const p = posts[idx];
+      if (!p) return;
       renderCalendarStrip();
 
-      document.getElementById('currentEditBadge').textContent = `${p.edit_number} · ${p.weekday}`;
-      const st = document.getElementById('currentStatusBadge');
-      st.textContent = p.status;
-      st.className = 'pill-badge ' + (p.status === 'PUBLISHED' ? 'published' : '');
+      const editBadge = document.getElementById('currentEditBadge');
+      if (editBadge) editBadge.textContent = `${p.edit_number} · ${p.weekday}`;
 
-      document.getElementById('igPillarSub').textContent = `${p.pillar} · Nahia Home`;
-      document.getElementById('igCaptionInput').value = p.ig_caption;
-      document.getElementById('ttCaptionInput').value = p.tiktok_caption;
-      document.getElementById('ttAudioBox').textContent = '♪ ' + p.audio_suggestion;
-      document.getElementById('ttSoundLabel').textContent = p.audio_suggestion;
-      document.getElementById('ttDownloadBtn').href = p.video_url;
+      const st = document.getElementById('currentStatusBadge');
+      if (st) {
+        st.textContent = p.status;
+        st.className = 'pill-badge ' + (p.status === 'PUBLISHED' ? 'published' : '');
+      }
+
+      const pillar = document.getElementById('igPillarSub');
+      if (pillar) pillar.textContent = `${p.pillar} · Nahia Home`;
+
+      const igCap = document.getElementById('igCaptionInput');
+      if (igCap) igCap.value = p.ig_caption;
+
+      const ttCap = document.getElementById('ttCaptionInput');
+      if (ttCap) ttCap.value = p.tiktok_caption;
+
+      const ttAudio = document.getElementById('ttAudioBox');
+      if (ttAudio) ttAudio.textContent = '♪ ' + p.audio_suggestion;
+
+      const ttSound = document.getElementById('ttSoundLabel');
+      if (ttSound) ttSound.textContent = p.audio_suggestion;
+
+      const dlBtn = document.getElementById('ttDownloadBtn');
+      if (dlBtn) dlBtn.href = p.video_url;
 
       // Render Products list
-      document.getElementById('igProductsList').innerHTML = p.products.map(prod => `
-        <div class="prod-row">
-          <a class="prod-link" href="https://nahiahome.com${prod.handle}" target="_blank">${prod.title} ↗</a>
-          <span class="prod-price">${prod.material_note || prod.brand}</span>
-        </div>
-      `).join('');
+      const prodList = document.getElementById('igProductsList');
+      if (prodList && p.products) {
+        prodList.innerHTML = p.products.map(prod => `
+          <div class="prod-row">
+            <span class="prod-link">${prod.title}</span>
+            <span class="prod-price">${prod.material_note || prod.brand}</span>
+          </div>
+        `).join('');
+      }
 
       // Load video
       const ttVid = document.getElementById('ttVideoPlayer');
-      ttVid.src = p.video_url;
-      ttVid.play().catch(() => {});
+      if (ttVid) {
+        ttVid.src = p.video_url;
+        ttVid.load();
+        ttVid.play().catch(() => {});
+      }
 
       const igVid = document.getElementById('igReelVideo');
-      igVid.src = p.video_url;
+      if (igVid) {
+        igVid.src = p.video_url;
+        igVid.load();
+      }
 
       syncCaptions();
       updateSlideView();
