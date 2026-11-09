@@ -842,7 +842,7 @@
                 <div id="igPrevBtn" class="nav-arrow prev" onclick="changeSlide(-1)">‹</div>
                 <div id="igNextBtn" class="nav-arrow next" onclick="changeSlide(1)">›</div>
                 <div id="igSlideCounter" class="slide-counter-pill">1 / 4</div>
-                <div class="product-tag-pill">🛍️ 4 Tagged Products</div>
+                <div id="igProductTagPill" class="product-tag-pill">🛍️ 3 Tagged Products</div>
               </div>
 
               <div class="ig-actions-bar">
@@ -865,10 +865,10 @@
             <div>
               <label class="field-label">SLIDE GUIDE (CLICK THUMBNAIL TO INSPECT)</label>
               <div style="font-size:12px; color:var(--muted); line-height:1.5;">
-                • <b>Slide 1:</b> Sunlit Editorial Cover (Didot Serif)<br>
-                • <b>Slide 2:</b> Craftsmanship & Materiality Frame<br>
-                • <b>Slide 3:</b> Heritage / Cultural Story Frame<br>
-                • <b>Slide 4:</b> Westwing <i>"Shop the Edit"</i> 2×2 Grid
+                • <b>Slide 1:</b> Sunlit Editorial Cover (Single Title)<br>
+                • <b>Slide 2:</b> Craftsmanship &amp; Materiality Frame (Uncropped)<br>
+                • <b>Slide 3:</b> Heritage / Cultural Story Frame (Uncropped)<br>
+                • <b>Slide 4:</b> Westwing <i>"The Curated Edit"</i> (Matched Products)
               </div>
             </div>
 
@@ -890,8 +890,9 @@
               <button class="btn-outline" onclick="copyText('igCaptionInput', 'Instagram caption copiado!')">📋 Copy Caption</button>
               <button class="btn-outline" onclick="downloadCurrentSlide()">⬇️ Download Slide</button>
             </div>
-            <div style="margin-top:8px;">
-              <button class="btn-outline" style="width:100%;" onclick="downloadAllSlides()">⬇️ Download All 4 Slides (HD)</button>
+            <div class="btn-secondary-row" style="margin-top:8px;">
+              <button class="btn-outline" onclick="downloadAllSlides()">⬇️ 4 Slides (HD)</button>
+              <button class="btn-outline" onclick="downloadIgVideo()">🎵 IG Reel MP4 (con Música)</button>
             </div>
           </div>
         </div>
@@ -935,12 +936,15 @@
           <!-- TikTok Controls & One-Click Publish -->
           <div class="controls-col">
             <div>
-              <label class="field-label">RECOMMENDED EDITORIAL SOUNDTRACK</label>
-              <div id="ttAudioBox" style="background:#FFF; border:1px solid var(--border); padding:10px 12px; border-radius:8px; font-size:12.5px; font-weight:500;"></div>
+              <label class="field-label">MÚSICA INTEGRADA EN EL VÍDEO (IG REEL &amp; TIKTOK MP4)</label>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <div id="ttAudioBox" style="flex:1; background:#FFF; border:1px solid var(--border); padding:10px 12px; border-radius:8px; font-size:12.5px; font-weight:500;"></div>
+                <button id="soundToggleBtn" class="btn-outline" style="white-space:nowrap; padding:10px 14px;" onclick="togglePreviewAudio()">🔊 Escuchar Música</button>
+              </div>
             </div>
 
             <div>
-              <label class="field-label">TIKTOK CAPTION & SEARCH KEYWORDS</label>
+              <label class="field-label">TIKTOK CAPTION &amp; SEARCH KEYWORDS</label>
               <textarea id="ttCaptionInput" class="caption-box" oninput="syncCaptions()"></textarea>
             </div>
 
@@ -953,7 +957,7 @@
                 </div>
                 <div class="prod-row">
                   <span>Video Format</span>
-                  <span style="color:var(--muted);">9:16 Vertical H.264 MP4 (24fps)</span>
+                  <span style="color:var(--muted);">9:16 Vertical MP4 + Audio AAC Estéreo</span>
                 </div>
               </div>
             </div>
@@ -964,7 +968,7 @@
 
             <div class="btn-secondary-row">
               <button class="btn-outline" onclick="copyText('ttCaptionInput', 'TikTok caption copiado!')">📋 Copy Caption</button>
-              <button id="ttDownloadBtn" class="btn-outline" onclick="downloadVideo()">⬇️ Download 9:16 Reel (MP4)</button>
+              <button id="ttDownloadBtn" class="btn-outline" onclick="downloadVideo()">🎵 TikTok MP4 (con Música)</button>
             </div>
           </div>
         </div>
@@ -1059,7 +1063,8 @@
       posts = list.map(p => ({
         ...p,
         ig_slides: (p.ig_slides || []).map(s => `${resolveAsset(s)}?v=${CACHE_VER}`),
-        video_url: `${resolveAsset(p.video_url)}?v=${CACHE_VER}`
+        video_url: `${resolveAsset(p.video_url)}?v=${CACHE_VER}`,
+        ig_video_url: `${resolveAsset(p.ig_video_url || p.video_url)}?v=${CACHE_VER}`
       }));
 
       try {
@@ -1090,11 +1095,41 @@
       const src = p.video_url.split("?")[0];
       const a = document.createElement("a");
       a.href = src;
-      a.download = `nahia_day_${p.day}_reel.mp4`;
+      a.download = `nahia_day_${p.day}_tiktok_reel.mp4`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      showToast(`Descargando Reel 9:16 (Día ${p.day})...`);
+      showToast(`Descargando Video 9:16 TikTok con música (Día ${p.day})...`);
+    }
+
+    function downloadIgVideo() {
+      const p = posts[currentDayIdx];
+      const src = (p.ig_video_url || p.video_url).split("?")[0];
+      const a = document.createElement("a");
+      a.href = src;
+      a.download = `nahia_day_${p.day}_ig_reel.mp4`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast(`Descargando Instagram Reel 9:16 con música (Día ${p.day})...`);
+    }
+
+    function togglePreviewAudio() {
+      const ttVid = document.getElementById('ttVideoPlayer');
+      const igVid = document.getElementById('igReelVideo');
+      const btn = document.getElementById('soundToggleBtn');
+      const activeVid = (igMode === 'reel') ? igVid : ttVid;
+      const nowMuted = !activeVid.muted;
+      ttVid.muted = nowMuted;
+      igVid.muted = nowMuted;
+      if (!nowMuted) {
+        activeVid.volume = 0.85;
+        activeVid.play().catch(() => {});
+        if (btn) btn.textContent = '🔇 Silenciar Audio';
+        showToast('🎵 Reproduciendo música integrada del vídeo');
+      } else {
+        if (btn) btn.textContent = '🔊 Escuchar Música';
+      }
     }
 
     async function downloadAllSlides() {
@@ -1161,6 +1196,11 @@
       const dlBtn = document.getElementById('ttDownloadBtn');
       if (dlBtn) dlBtn.href = p.video_url;
 
+      const tagPill = document.getElementById('igProductTagPill');
+      if (tagPill && p.products) {
+        tagPill.textContent = `🛍️ ${p.products.length} Tagged Products`;
+      }
+
       // Render Products list
       const prodList = document.getElementById('igProductsList');
       if (prodList && p.products) {
@@ -1182,8 +1222,9 @@
 
       const igVid = document.getElementById('igReelVideo');
       if (igVid) {
-        igVid.src = p.video_url;
+        igVid.src = p.ig_video_url || p.video_url;
         igVid.load();
+        if (igMode === 'reel') igVid.play().catch(() => {});
       }
 
       syncCaptions();
@@ -1287,7 +1328,7 @@
 
       // 3. Download appropriate media
       if (igMode === "reel") {
-        downloadVideo();
+        downloadIgVideo();
       } else {
         downloadCurrentSlide();
       }

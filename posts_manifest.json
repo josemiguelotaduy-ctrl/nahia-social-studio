@@ -13,6 +13,8 @@
       "assets/day_01/ig_slide_4_shop_edit.jpg"
     ],
     "video_url": "assets/day_01/tiktok_reel_day_01.mp4",
+    "ig_video_url": "assets/day_01/ig_reel_day_01.mp4",
+    "audio_url": "assets/audio/day_01_music.m4a",
     "ig_caption": "THE TABLE EDIT — L’Art de la Table.\n\nCrafted in France’s oldest working glassworks (established in 1475), our La Rochère Abeille glassware brings architectural weight, warm refraction, and the signature bee relief to the everyday table.\n\nExplore the complete collection via the product tags and the link in our bio.\n\n#NahiaHome #LaRochere #ArtDeLaTable #FrenchGlassware #TableStyling #QuietLuxury",
     "tiktok_caption": "THE TABLE EDIT · Crafted in France since 1475. The iconic Abeille glassware collection by La Rochère, curated for timeless tables. Discover the edit at nahiahome.com #NahiaHome #LaRochere #TableStyling #FrenchGlassware #QuietLuxury",
     "audio_suggestion": "Chet Baker — Almost Blue (Instrumental Vinyl)",
@@ -32,16 +34,18 @@
         "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/work/video_assets/copa_clean.png"
       },
       {
-        "title": "\"Abeille\" Glass Carafe",
+        "title": "\"Abeille\" Glass Pitcher",
         "brand": "LA ROCHÈRE · FRANCE 1475",
-        "material_note": "Signature Bee Relief · 1 L",
-        "handle": "/products/jarra-de-cristal-abeille-1-l"
+        "material_note": "Pressed French Crystal · 1 L",
+        "handle": "/products/jarra-de-cristal-abeille-1-l",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/jarra-de-cristal-abeille-1l/primary.jpg"
       },
       {
-        "title": "\"Abeille\" Mini Glass Bowl",
+        "title": "\"Abeille\" Blown-Glass Carafe",
         "brand": "LA ROCHÈRE · FRANCE 1475",
-        "material_note": "Pressed French Crystal · 27 cl",
-        "handle": "/products/mini-bol-abeille-27-cl"
+        "material_note": "Mouth-Blown French Glass · 1 L",
+        "handle": "/products/jarra-de-vidrio-soplado-abeille-1l",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/jarra-de-vidrio-soplado-abeille-1l/primary.jpg"
       }
     ],
     "status": "READY TO POST"
@@ -60,8 +64,10 @@
       "assets/day_02/ig_slide_4_shop_edit.jpg"
     ],
     "video_url": "assets/day_02/tiktok_reel_day_02.mp4",
-    "ig_caption": "THE MEDITERRANEAN EDIT — Materiality and southern light.\n\nA timeless table lives in the dialogue between textures: unbleached linen, organic Portuguese stoneware from Costa Nova, ribbed French glass, and natural bamboo cutlery by Sabrê Paris.\n\nDiscover the complete table edit through the product tags and the link in our bio.\n\n#NahiaHome #CostaNova #CoteTable #SabreParis #Tableware #SlowLiving",
-    "tiktok_caption": "THE MEDITERRANEAN EDIT · Layering Portuguese stoneware, raw linen, and Parisian bamboo flatware for an effortless Mediterranean table. Explore the edit at nahiahome.com #NahiaHome #TableScape #InteriorDesign #Hosting #EuropeanHome",
+    "ig_video_url": "assets/day_02/ig_reel_day_02.mp4",
+    "audio_url": "assets/audio/day_02_music.m4a",
+    "ig_caption": "THE MEDITERRANEAN EDIT — Materiality and southern light.\n\nA timeless table lives in the dialogue between textures: unbleached linen, organic Portuguese stoneware from Costa Nova, and mouth-blown green ribbed glass by Côté Table Paris.\n\nDiscover the complete table edit through the product tags and the link in our bio.\n\n#NahiaHome #CostaNova #CoteTable #Tableware #SlowLiving #MediterraneanHome",
+    "tiktok_caption": "THE MEDITERRANEAN EDIT · Layering Portuguese Pearl stoneware, raw linen, and Parisian ribbed glass for an effortless Mediterranean table. Explore the edit at nahiahome.com #NahiaHome #TableScape #InteriorDesign #Hosting #EuropeanHome",
     "audio_suggestion": "Stan Getz & João Gilberto — Corcovado (Instrumental)",
     "products": [
       {
@@ -72,23 +78,18 @@
         "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/work/video_assets/plato_clean.png"
       },
       {
-        "title": "Perloa Scalloped Bowl",
-        "brand": "CÔTÉ TABLE · PARIS",
-        "material_note": "Beaded Rim Ceramic · 21 cm",
-        "handle": "/products/ensaladera-perloa-21-cm-cote-table"
-      },
-      {
-        "title": "Panda Bamboo Serving Set",
-        "brand": "SABRÊ · PARIS",
-        "material_note": "Natural Bamboo Root & Steel",
-        "handle": "/products/cubiertos-de-servicio-ensalada",
-        "url": "https://cdn.shopify.com/s/files/1/0603/1130/6380/files/SETDECUBIERTOSDESERVICIOPARAENSALADA.png?v=1728394005"
+        "title": "Pearl Stoneware Salad Bowl",
+        "brand": "COSTA NOVA · PORTUGAL",
+        "material_note": "Beaded Rim Stoneware · 27 cm",
+        "handle": "/products/ensaladera-costa-nova-pearl-27cm",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/ensaladera-costa-nova-pearl-27cm/primary.jpg"
       },
       {
         "title": "Alhelí Ribbed Pitcher",
         "brand": "CÔTÉ TABLE · PARIS",
         "material_note": "Mouth-Blown Green Glass · 2.3 L",
-        "handle": "/products/jarra-alheli-cote-table-2-3-l"
+        "handle": "/products/jarra-alheli-cote-table-2-3-l",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/jarra-alheli-cote-table-2-3-l/primary.jpg"
       }
     ],
     "status": "READY TO POST"
@@ -107,27 +108,32 @@
       "assets/day_03/ig_slide_4_shop_edit.jpg"
     ],
     "video_url": "assets/day_03/tiktok_reel_day_03.mp4",
-    "ig_caption": "THE EXTERIOR EDIT — The garden as an architectural extension of the home.\n\nFrom Livlig’s sage green garden hoses and solid brass fittings to the handcrafted linen of The Viana Fan, every exterior detail deserves quiet elegance.\n\nExplore the garden and outdoor collection via the link in our bio.\n\n#NahiaHome #Livlig #GardenArchitecture #OutdoorLiving #TerraceDesign #QuietLuxury",
-    "tiktok_caption": "THE EXTERIOR EDIT · Elevating the garden sanctuary with solid brass fittings, sage green hardware by Livlig, and handmade Spanish linen. Discover more at nahiahome.com #NahiaHome #GardenDesign #ExteriorDesign #LuxuryHome #OutdoorLiving",
+    "ig_video_url": "assets/day_03/ig_reel_day_03.mp4",
+    "audio_url": "assets/audio/day_03_music.m4a",
+    "ig_caption": "THE EXTERIOR EDIT — The garden as an architectural extension of the home.\n\nFrom Livlig’s sage green garden hoses, wall holders, and solid brass taps to the handcrafted linen of The Viana Fan, every exterior detail deserves quiet elegance.\n\nExplore the garden and outdoor collection via the link in our bio.\n\n#NahiaHome #Livlig #GardenArchitecture #OutdoorLiving #TerraceDesign #QuietLuxury",
+    "tiktok_caption": "THE EXTERIOR EDIT · Elevating the garden sanctuary with solid brass taps, sage green hardware by Livlig, and handmade Spanish linen. Discover more at nahiahome.com #NahiaHome #GardenDesign #ExteriorDesign #LuxuryHome #OutdoorLiving",
     "audio_suggestion": "Ludovico Einaudi — Una Mattina (Acoustic Piano)",
     "products": [
       {
-        "title": "Architectural Garden Tap",
-        "brand": "LIVLIG · GARDEN ARCHITECTURE",
-        "material_note": "Solid Brass & Sage Rosette",
-        "handle": "/products/grifo-de-jardin-con-roseta-green-livlig"
-      },
-      {
-        "title": "Gentle Greige Garden Hose",
+        "title": "Graceful Green Garden Hose",
         "brand": "LIVLIG · GARDEN ARCHITECTURE",
         "material_note": "UV-Resistant Matte Weave · 20M",
-        "handle": "/products/manguera-de-jardin-gentle-greige-20m-livlig"
+        "handle": "/products/manguera-de-jardin-graceful-green-20m-livlig",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/manguera-de-jardin-graceful-green-20m-livlig/primary.jpg"
       },
       {
         "title": "Graceful Green Hose Holder",
         "brand": "LIVLIG · GARDEN ARCHITECTURE",
         "material_note": "Powder-Coated Architectural Steel",
-        "handle": "/products/soporte-de-manguera-graceful-green-livlig"
+        "handle": "/products/soporte-de-manguera-graceful-green-livlig",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/soporte-de-manguera-graceful-green-livlig/primary.jpg"
+      },
+      {
+        "title": "Architectural Garden Tap",
+        "brand": "LIVLIG · GARDEN ARCHITECTURE",
+        "material_note": "Solid Brass & Sage Rosette",
+        "handle": "/products/grifo-de-jardin-con-roseta-green-livlig",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/grifo-de-jardin-con-roseta-green-livlig/primary.jpg"
       },
       {
         "title": "Santanyí Linen Hand Fan",
@@ -153,8 +159,10 @@
       "assets/day_04/ig_slide_4_shop_edit.jpg"
     ],
     "video_url": "assets/day_04/tiktok_reel_day_04.mp4",
+    "ig_video_url": "assets/day_04/ig_reel_day_04.mp4",
+    "audio_url": "assets/audio/day_04_music.m4a",
     "ig_caption": "THE LIVING EDIT — The art of styling quiet corners.\n\nLarge-format illustrated monographs including Slim Aarons’ 'La Dolce Vita' and Taschen’s 'The Gourmand’s Lemon', paired with botanical linen stationery and Costa Nova stoneware.\n\nDiscover our curated library and home objects at nahiahome.com.\n\n#NahiaHome #CoffeeTableBooks #SlimAarons #InteriorStyling #ArchitecturalDigest #HomeEdit",
-    "tiktok_caption": "THE LIVING EDIT · Styling a travertine side table with large-format Slim Aarons photography, candlelight, and botanical linen stationery. Shop the edit at nahiahome.com #NahiaHome #CoffeeTableBooks #SlimAarons #InteriorStyling #HomeDecor",
+    "tiktok_caption": "THE LIVING EDIT · Styling a travertine side table with large-format Slim Aarons photography, Taschen monographs, and botanical linen stationery. Shop the edit at nahiahome.com #NahiaHome #CoffeeTableBooks #SlimAarons #InteriorStyling #HomeDecor",
     "audio_suggestion": "Erik Satie — Gymnopédie No. 1 (Warm Vinyl)",
     "products": [
       {
@@ -165,6 +173,12 @@
         "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/work/video_assets/libro_slim_aarons.webp"
       },
       {
+        "title": "Pearl Espresso Cup & Saucer",
+        "brand": "COSTA NOVA · PORTUGAL",
+        "material_note": "Glazed Portuguese Stoneware",
+        "handle": "/products/taza-de-cafe-con-plato-costa-nova-pearl"
+      },
+      {
         "title": "The Gourmand’s Lemon",
         "brand": "TASCHEN · ART & GASTRONOMY",
         "material_note": "Illustrated Hardcover Volume",
@@ -172,16 +186,11 @@
         "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/work/video_assets/libro_gourmand_lemon.webp"
       },
       {
-        "title": "Pearl Espresso Cup & Saucer",
-        "brand": "COSTA NOVA · PORTUGAL",
-        "material_note": "Glazed Portuguese Stoneware",
-        "handle": "/products/taza-de-cafe-con-plato-costa-nova-pearl"
-      },
-      {
-        "title": "Pearl Stoneware Teapot",
-        "brand": "COSTA NOVA · PORTUGAL",
-        "material_note": "Beaded Rim Stoneware & Infuser",
-        "handle": "/products/tetera-con-infusor-pearl-costa-nova"
+        "title": "Umbel Botanical Notebook",
+        "brand": "ARTISANAL STATIONERY",
+        "material_note": "Embroidered Linen Spine",
+        "handle": "/products/cuaderno-de-notas-umbel",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/work/umbel_final_1000.jpg"
       }
     ],
     "status": "READY TO POST"
@@ -200,7 +209,9 @@
       "assets/day_05/ig_slide_4_shop_edit.jpg"
     ],
     "video_url": "assets/day_05/tiktok_reel_day_05.mp4",
-    "ig_caption": "THE WEEKEND TABLE — The art of gathering at dusk.\n\nPure woven linen by Casa López Paris, aged brass taper holders, olive branches, and the warm green glow of our La Rochère Abeille goblets.\n\nEvery piece on this table is tagged in the post and available via the link in our bio.\n\n#NahiaHome #TableSetting #ArtOfHosting #LaRochere #CasaLopez #EveningTable",
+    "ig_video_url": "assets/day_05/ig_reel_day_05.mp4",
+    "audio_url": "assets/audio/day_05_music.m4a",
+    "ig_caption": "THE WEEKEND TABLE — The art of gathering at dusk.\n\nPure woven placemats and botanical embroidered linen napkins by Casa López Paris, paired with the warm olive glow of our La Rochère Abeille crystal.\n\nEvery piece on this table is tagged in the post and available via the link in our bio.\n\n#NahiaHome #TableSetting #ArtOfHosting #LaRochere #CasaLopez #EveningTable",
     "tiktok_caption": "THE WEEKEND TABLE · Setting the mood for Friday evening: tall taper candles, olive-green French crystal, and Casa López Paris table linens. Discover the look at nahiahome.com #NahiaHome #DinnerParty #TableSetting #ArtOfHosting #QuietLuxury",
     "audio_suggestion": "Dalida & Alain Delon — Paroles, Paroles (Instrumental Lounge)",
     "products": [
@@ -219,16 +230,18 @@
         "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/work/video_assets/vaso_clean.png"
       },
       {
-        "title": "\"Poisson\" Sculptural Carafe",
-        "brand": "CÔTÉ TABLE · PARIS",
-        "material_note": "Molded Glass Carafe · 1.1 L",
-        "handle": "/products/botella-poisson-cote-table-1-1-l"
-      },
-      {
         "title": "Majorque Linen Placemat",
         "brand": "CASA LÓPEZ · PARIS",
         "material_note": "Pure Woven Linen · Vert Olive",
-        "handle": "/products/mantel-individual-lino-majorque-vert-olive-casa-lopez"
+        "handle": "/products/mantel-individual-lino-majorque-vert-olive-casa-lopez",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/mantel-individual-lino-majorque-vert-olive-casa-lopez-paris/primary.jpg"
+      },
+      {
+        "title": "Emperatriz Linen Napkin",
+        "brand": "CASA LÓPEZ · PARIS",
+        "material_note": "Botanical Embroidered Linen",
+        "handle": "/products/servilleta-lino-emperatriz-casa-lopez-paris",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/servilleta-lino-emperatriz-casa-lopez-paris/primary.jpg"
       }
     ],
     "status": "READY TO POST"
@@ -247,35 +260,32 @@
       "assets/day_06/ig_slide_4_shop_edit.jpg"
     ],
     "video_url": "assets/day_06/tiktok_reel_day_06.mp4",
-    "ig_caption": "THE GIFT EDIT — The art of gifting objects that endure.\n\nA curated selection of distinctive European pieces: the sculptural Poisson carafe by Côté Table, Taschen’s 'The Gourmand’s Lemon', our 1L Abeille crystal carafe, and botanical linen notebooks.\n\nSave this edit for the upcoming season or explore the collection at nahiahome.com.\n\n#NahiaHome #GiftGuide #ObjectsOfDesire #CoteTable #InteriorGifts #EuropeanDesign",
-    "tiktok_caption": "THE GIFT EDIT · Curated European home gifts that feel like a Parisian gallery find. Save this edit for the upcoming holiday season. #NahiaHome #GiftGuide #HolidayGifts #HomeDecor #ParisianStyle",
+    "ig_video_url": "assets/day_06/ig_reel_day_06.mp4",
+    "audio_url": "assets/audio/day_06_music.m4a",
+    "ig_caption": "THE GIFT EDIT — The art of gifting objects that endure.\n\nA curated selection of distinctive European pieces: our 1L Abeille crystal pitcher and mini bowls from France’s oldest glassworks, paired with handcrafted Spanish linen fans by The Viana Fan.\n\nSave this edit for the upcoming season or explore the collection at nahiahome.com.\n\n#NahiaHome #GiftGuide #ObjectsOfDesire #LaRochere #InteriorGifts #EuropeanDesign",
+    "tiktok_caption": "THE GIFT EDIT · Curated European home gifts that feel like a Parisian gallery find. Save this edit for the upcoming season. #NahiaHome #GiftGuide #HolidayGifts #HomeDecor #ParisianStyle",
     "audio_suggestion": "Françoise Hardy — Le temps de l'amour (Acoustic Instrumental)",
     "products": [
       {
-        "title": "\"Poisson\" Sculptural Carafe",
-        "brand": "CÔTÉ TABLE · PARIS",
-        "material_note": "Molded Glass Carafe · 1.1 L",
-        "handle": "/products/botella-poisson-cote-table-1-1-l"
-      },
-      {
-        "title": "The Gourmand’s Lemon",
-        "brand": "TASCHEN · ART & GASTRONOMY",
-        "material_note": "Illustrated Hardcover Volume",
-        "handle": "/products/the-gourmands-lemon",
-        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/work/video_assets/libro_gourmand_lemon.webp"
-      },
-      {
-        "title": "\"Abeille\" Glass Carafe",
+        "title": "\"Abeille\" Glass Pitcher",
         "brand": "LA ROCHÈRE · FRANCE 1475",
-        "material_note": "Signature Bee Relief · 1 L",
-        "handle": "/products/jarra-de-cristal-abeille-1-l"
+        "material_note": "Pressed French Crystal · 1 L",
+        "handle": "/products/jarra-de-cristal-abeille-1-l",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/jarra-de-cristal-abeille-1l/primary.jpg"
       },
       {
-        "title": "Umbel Botanical Notebook",
-        "brand": "ARTISANAL STATIONERY",
-        "material_note": "Embroidered Linen Spine",
-        "handle": "/products/cuaderno-de-notas-umbel",
-        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/work/umbel_final_1000.jpg"
+        "title": "\"Abeille\" Mini Glass Bowl",
+        "brand": "LA ROCHÈRE · FRANCE 1475",
+        "material_note": "Pressed French Crystal · 27 cl",
+        "handle": "/products/mini-bol-abeille-27-cl",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/mini-bol-abeille-27-cl/primary.jpg"
+      },
+      {
+        "title": "Santanyí Linen Hand Fan",
+        "brand": "THE VIANA FAN · ARTISANAL",
+        "material_note": "Organic Linen & Noble Wood",
+        "handle": "/products/abanico-de-lino-santanyi-the-viana-fan",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/work/video_assets/abanico_clean.png"
       }
     ],
     "status": "READY TO POST"
@@ -294,7 +304,9 @@
       "assets/day_07/ig_slide_4_shop_edit.jpg"
     ],
     "video_url": "assets/day_07/tiktok_reel_day_07.mp4",
-    "ig_caption": "LE DIMANCHE MATIN — Unrushed Sunday mornings.\n\nThe Pearl infuser teapot and creamer by Costa Nova on natural marble, paired with Côté Table’s beaded Perloa teacup and the La Rochère Abeille mini bowl.\n\nDiscover this week’s most loved pieces via the link in our bio.\n\n#NahiaHome #SundayMorning #SlowLiving #CostaNovaPearl #ArtDeVivre #MorningRitual",
+    "ig_video_url": "assets/day_07/ig_reel_day_07.mp4",
+    "audio_url": "assets/audio/day_07_music.m4a",
+    "ig_caption": "LE DIMANCHE MATIN — Unrushed Sunday mornings.\n\nThe Pearl infuser teapot, creamer, and scalloped bowl by Costa Nova on natural marble, paired with Côté Table’s beaded Perloa glass cup and saucer.\n\nDiscover this week’s most loved pieces via the link in our bio.\n\n#NahiaHome #SundayMorning #SlowLiving #CostaNovaPearl #ArtDeVivre #MorningRitual",
     "tiktok_caption": "LE DIMANCHE MATIN · Slow Sunday morning rituals with Portuguese Pearl stoneware and sculpted French glass. Discover the collection at nahiahome.com #NahiaHome #SundayMorning #SlowLiving #Ceramics #Tableware",
     "audio_suggestion": "Claude Debussy — Clair de Lune (Soft Morning Piano)",
     "products": [
@@ -302,25 +314,29 @@
         "title": "Pearl Stoneware Teapot",
         "brand": "COSTA NOVA · PORTUGAL",
         "material_note": "Beaded Rim Stoneware & Infuser",
-        "handle": "/products/tetera-con-infusor-pearl-costa-nova"
-      },
-      {
-        "title": "Perloa Beaded Tea Cup",
-        "brand": "CÔTÉ TABLE · PARIS",
-        "material_note": "Sculpted French Glass · 18 cl",
-        "handle": "/products/taza-de-te-c-plato-perloa-cote-table-18cl"
+        "handle": "/products/tetera-con-infusor-pearl-costa-nova",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/tetera-con-infusor-pearl-costa-nova/primary.jpg"
       },
       {
         "title": "Pearl Stoneware Creamer",
         "brand": "COSTA NOVA · PORTUGAL",
         "material_note": "Beaded Rim Stoneware · 10 cl",
-        "handle": "/products/lechera-pearl-10cl-costa-nova"
+        "handle": "/products/lechera-pearl-10cl-costa-nova",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/lechera-pearl-10cl-costa-nova/primary.jpg"
       },
       {
-        "title": "\"Abeille\" Mini Glass Bowl",
-        "brand": "LA ROCHÈRE · FRANCE 1475",
-        "material_note": "Pressed French Crystal · 27 cl",
-        "handle": "/products/mini-bol-abeille-27-cl"
+        "title": "Perloa Beaded Cup & Saucer",
+        "brand": "CÔTÉ TABLE · PARIS",
+        "material_note": "Sculpted French Glass · 18 cl",
+        "handle": "/products/taza-de-te-c-plato-perloa-cote-table-18cl",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/taza-de-te-c-plato-perloa-cote-table-18cl/primary.jpg"
+      },
+      {
+        "title": "Pearl Stoneware Salad Bowl",
+        "brand": "COSTA NOVA · PORTUGAL",
+        "material_note": "Beaded Rim Stoneware · 27 cm",
+        "handle": "/products/ensaladera-costa-nova-pearl-27cm",
+        "local": "/Users/josemiguellavao/Desktop/NAHIA HOME/scratch/batch_standardization/ensaladera-costa-nova-pearl-27cm/primary.jpg"
       }
     ],
     "status": "READY TO POST"
