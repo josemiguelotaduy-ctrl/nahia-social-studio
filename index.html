@@ -1007,7 +1007,7 @@
     }
 
     async function checkAuth() {
-      const saved = localStorage.getItem("nahia_social_auth");
+      const saved = localStorage.getItem("nahia_social_auth") || localStorage.getItem("nahia_portal_auth") || localStorage.getItem("nahia_pnl_auth") || localStorage.getItem("nahia_ads_auth");
       const overlay = document.getElementById("loginOverlay");
       if (VALID_HASHES.includes(saved)) {
         if (overlay) overlay.style.display = "none";
