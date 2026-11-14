@@ -879,8 +879,11 @@
             </div>
 
             <div>
-              <label class="field-label">RECOMMENDED SOUNDTRACK (TIKTOK &amp; INSTAGRAM)</label>
-              <div id="ttAudioBox" style="background:#FFF; border:1px solid var(--border); padding:10px 12px; border-radius:8px; font-size:12.5px; font-weight:500;"></div>
+              <label class="field-label">EMBEDDED STEREO SOUNDTRACK + ASMR AUDIO</label>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <div id="ttAudioBox" style="flex:1; background:#FFF; border:1px solid var(--border); padding:10px 12px; border-radius:8px; font-size:12.5px; font-weight:500;"></div>
+                <button id="soundToggleBtn" class="btn-outline" style="display:none; white-space:nowrap; font-weight:600; background:#2C3628; color:#FAF7F2; border-color:#2C3628;" onclick="togglePreviewAudio()">🔊 Play with Music</button>
+              </div>
             </div>
 
             <div>
@@ -1056,20 +1059,18 @@
     }
 
     function togglePreviewAudio() {
-      const ttVid = document.getElementById('ttVideoPlayer');
       const igVid = document.getElementById('igReelVideo');
       const btn = document.getElementById('soundToggleBtn');
-      const activeVid = (igMode === 'reel') ? igVid : ttVid;
-      const nowMuted = !activeVid.muted;
-      ttVid.muted = nowMuted;
+      if (!igVid) return;
+      const nowMuted = !igVid.muted;
       igVid.muted = nowMuted;
       if (!nowMuted) {
-        activeVid.volume = 0.85;
-        activeVid.play().catch(() => {});
-        if (btn) btn.textContent = '🔇 Silenciar Audio';
-        showToast('🎵 Reproduciendo música integrada del vídeo');
+        igVid.volume = 0.9;
+        igVid.play().catch(() => {});
+        if (btn) btn.textContent = '🔇 Mute Music';
+        showToast('🎵 Playing embedded soundtrack (Claude Debussy — Clair de Lune + Tea Pour)');
       } else {
-        if (btn) btn.textContent = '🔊 Escuchar Música';
+        if (btn) btn.textContent = '🔊 Play with Music';
       }
     }
 
@@ -1170,35 +1171,35 @@
       const igReelDl = document.getElementById('igReelDownloadBtn');
       if (igReelDl) igReelDl.style.display = hasVideo ? 'block' : 'none';
 
-      if (hasVideo) {
-        setIgMode('reel');
-      } else {
-        setIgMode('carousel');
-      }
-
-      // Load video only if present
-      const ttVid = document.getElementById('ttVideoPlayer');
-      if (ttVid) {
-        if (hasVideo) {
-          ttVid.src = p.video_url;
-          ttVid.load();
-          ttVid.play().catch(() => {});
-        } else {
-          ttVid.pause();
-          ttVid.removeAttribute('src');
-        }
-      }
+      const soundBtn = document.getElementById('soundToggleBtn');
+      if (soundBtn) soundBtn.style.display = hasVideo ? 'inline-block' : 'none';
 
       const igVid = document.getElementById('igReelVideo');
       if (igVid) {
         if (hasVideo) {
           igVid.src = p.ig_video_url || p.video_url;
           igVid.load();
-          if (igMode === 'reel') igVid.play().catch(() => {});
         } else {
           igVid.pause();
           igVid.removeAttribute('src');
         }
+      }
+
+      if (hasVideo) {
+        setIgMode('reel');
+        if (igVid) {
+          igVid.muted = false;
+          igVid.volume = 0.9;
+          igVid.play().then(() => {
+            if (soundBtn) soundBtn.textContent = '🔇 Mute Music';
+          }).catch(() => {
+            igVid.muted = true;
+            igVid.play().catch(() => {});
+            if (soundBtn) soundBtn.textContent = '🔊 Play with Music';
+          });
+        }
+      } else {
+        setIgMode('carousel');
       }
 
       syncCaptions();
