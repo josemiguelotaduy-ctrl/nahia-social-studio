@@ -790,19 +790,7 @@ for d in DAYS_SPEC:
     s4 = make_shop_the_edit_slide(d["edit_title"], d["edit_sub"], d["products"])
     s4.save(os.path.join(day_folder, "ig_slide_4_shop_edit.jpg"), quality=94)
 
-    # Download soundtrack & render 9:16 video with embedded music for BOTH TikTok and Instagram Reels
-    audio_m4a = ensure_soundtrack_m4a(day_num, d["itunes_query"])
-    video_path = os.path.join(day_folder, f"tiktok_reel_day_{day_num:02d}.mp4")
-    ig_reel_path = os.path.join(day_folder, f"ig_reel_day_{day_num:02d}.mp4")
-
-    if "--slides-only" not in os.sys.argv:
-        vfx1, vfy1 = d.get("video_focus_1", cfx if isinstance(cfx, tuple) else (cfx, cfy))
-        vfx2, vfy2 = d.get("video_focus_2", (0.5, 0.5))
-        render_vertical_video(
-            d["cover_bg"], d["secondary_bg"], video_path, audio_m4a,
-            d["edit_number"], d["cover_line1"], vfx1, vfy1, vfx2, vfy2
-        )
-        shutil.copy2(video_path, ig_reel_path)
+    ai_video_rel = d.get("ai_video_url", None)
 
     manifest.append({
         "day": day_num,
@@ -817,9 +805,8 @@ for d in DAYS_SPEC:
             f"assets/day_{day_num:02d}/ig_slide_3_story.jpg",
             f"assets/day_{day_num:02d}/ig_slide_4_shop_edit.jpg"
         ],
-        "video_url": f"assets/day_{day_num:02d}/tiktok_reel_day_{day_num:02d}.mp4",
-        "ig_video_url": f"assets/day_{day_num:02d}/ig_reel_day_{day_num:02d}.mp4",
-        "audio_url": f"assets/audio/day_{day_num:02d}_music.m4a",
+        "video_url": ai_video_rel,
+        "ig_video_url": ai_video_rel,
         "ig_caption": d["ig_caption"],
         "tiktok_caption": d["tiktok_caption"],
         "audio_suggestion": d["audio_suggestion"],
