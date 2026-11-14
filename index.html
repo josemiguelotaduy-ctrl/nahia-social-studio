@@ -814,11 +814,11 @@
     <!-- Main Editorial Studio -->
     <div id="studioGrid" class="studio-grid">
 
-      <!-- LEFT: INSTAGRAM PANEL -->
+      <!-- UNIFIED TIKTOK & INSTAGRAM PANEL -->
       <div class="platform-panel">
         <div class="panel-header">
           <div class="panel-title-wrap">
-            <span class="platform-title">Instagram · @nahiahome</span>
+            <span class="platform-title">TikTok &amp; Instagram · @nahiahome</span>
           </div>
           <div class="mode-tabs">
             <button id="igTabCarousel" class="mode-tab active" onclick="setIgMode('carousel')">Carousel (4 Slides)</button>
@@ -827,7 +827,7 @@
         </div>
 
         <div class="panel-body">
-          <!-- IG Phone Frame -->
+          <!-- Phone Frame -->
           <div>
             <div class="phone-frame">
               <div class="ig-top-bar">
@@ -843,7 +843,7 @@
 
               <!-- Carousel or Reel Viewport -->
               <div id="igViewport" class="ig-viewport">
-                <img id="igActiveSlide" class="ig-slide-img" src="" alt="Instagram Slide" onclick="openLightbox(this.src)" />
+                <img id="igActiveSlide" class="ig-slide-img" src="" alt="Editorial Slide" onclick="openLightbox(this.src)" />
                 <video id="igReelVideo" class="tt-video" style="display:none;" controls loop muted playsinline></video>
                 <div id="igPrevBtn" class="nav-arrow prev" onclick="changeSlide(-1)">‹</div>
                 <div id="igNextBtn" class="nav-arrow next" onclick="changeSlide(1)">›</div>
@@ -866,7 +866,7 @@
             <div id="igSlideStrip" class="slide-strip"></div>
           </div>
 
-          <!-- IG Controls & One-Click Publish -->
+          <!-- Controls & One-Click Publish -->
           <div class="controls-col">
             <div>
               <label class="field-label">SLIDE GUIDE (CLICK THUMBNAIL TO INSPECT)</label>
@@ -879,7 +879,12 @@
             </div>
 
             <div>
-              <label class="field-label">EDITORIAL CAPTION (NO COMMENT-BAIT)</label>
+              <label class="field-label">RECOMMENDED SOUNDTRACK (TIKTOK &amp; INSTAGRAM)</label>
+              <div id="ttAudioBox" style="background:#FFF; border:1px solid var(--border); padding:10px 12px; border-radius:8px; font-size:12.5px; font-weight:500;"></div>
+            </div>
+
+            <div>
+              <label class="field-label">EDITORIAL CAPTION (TIKTOK &amp; INSTAGRAM)</label>
               <textarea id="igCaptionInput" class="caption-box" oninput="syncCaptions()"></textarea>
             </div>
 
@@ -888,93 +893,22 @@
               <div id="igProductsList" class="products-mini-list"></div>
             </div>
 
-            <button class="btn-post" onclick="publishInstagram()">
-              <span>✦ Click to Post on Instagram</span>
-            </button>
+            <div class="btn-secondary-row">
+              <button class="btn-post" onclick="publishInstagram()">
+                <span>✦ Post on Instagram</span>
+              </button>
+              <button class="btn-post" onclick="publishTikTok()">
+                <span>✦ Post on TikTok</span>
+              </button>
+            </div>
 
             <div class="btn-secondary-row">
-              <button class="btn-outline" onclick="copyText('igCaptionInput', 'Instagram caption copiado!')">📋 Copy Caption</button>
+              <button class="btn-outline" onclick="copyText('igCaptionInput', 'Caption copiado!')">📋 Copy Caption</button>
               <button class="btn-outline" onclick="downloadCurrentSlide()">⬇️ Download Slide</button>
             </div>
             <div id="igDownloadSecondaryRow" style="margin-top:8px;">
               <button class="btn-outline" style="width:100%;" onclick="downloadAllSlides()">⬇️ Download All 4 Slides (HD)</button>
-              <button id="igReelDownloadBtn" class="btn-outline" style="display:none; width:100%; margin-top:8px;" onclick="downloadIgVideo()">🎵 IG Reel MP4 (AI Video)</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: TIKTOK / AI VIDEO PANEL (Only shown when a day has an AI Video) -->
-      <div id="tiktokPanel" class="platform-panel" style="display:none;">
-        <div class="panel-header">
-          <div class="panel-title-wrap">
-            <span class="platform-title">TikTok · @nahiahome</span>
-          </div>
-          <div class="mode-tabs">
-            <button id="ttTabVideo" class="mode-tab active" onclick="setTtMode('video')">9:16 Video</button>
-            <button id="ttTabPhoto" class="mode-tab" onclick="setTtMode('photo')">Photo Mode (4 Slides)</button>
-          </div>
-        </div>
-
-        <div class="panel-body">
-          <!-- TikTok Phone Frame -->
-          <div>
-            <div class="phone-frame" style="background:#111;">
-              <div class="tt-viewport">
-                <video id="ttVideoPlayer" class="tt-video" autoplay loop muted playsinline controls></video>
-                <img id="ttPhotoSlide" class="ig-slide-img" style="display:none;" src="" alt="TikTok Photo Mode" onclick="openLightbox(this.src)" />
-
-                <div class="tt-overlay">
-                  <div class="tt-handle">@nahiahome</div>
-                  <div id="ttOverlayCaption" class="tt-desc"></div>
-                  <div class="tt-sound">♪ <span id="ttSoundLabel"></span></div>
-                </div>
-
-                <div class="tt-right-rail">
-                  <div class="tt-icon-circle">♥</div>
-                  <div class="tt-icon-circle">🔖</div>
-                  <div class="tt-icon-circle">↗</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- TikTok Controls & One-Click Publish -->
-          <div class="controls-col">
-            <div>
-              <label class="field-label">MÚSICA INTEGRADA EN EL VÍDEO (IG REEL &amp; TIKTOK MP4)</label>
-              <div style="display:flex; gap:8px; align-items:center;">
-                <div id="ttAudioBox" style="flex:1; background:#FFF; border:1px solid var(--border); padding:10px 12px; border-radius:8px; font-size:12.5px; font-weight:500;"></div>
-                <button id="soundToggleBtn" class="btn-outline" style="white-space:nowrap; padding:10px 14px;" onclick="togglePreviewAudio()">🔊 Escuchar Música</button>
-              </div>
-            </div>
-
-            <div>
-              <label class="field-label">TIKTOK CAPTION &amp; SEARCH KEYWORDS</label>
-              <textarea id="ttCaptionInput" class="caption-box" oninput="syncCaptions()"></textarea>
-            </div>
-
-            <div>
-              <label class="field-label">CONVERSION DESTINATION (BIO LINK)</label>
-              <div class="products-mini-list">
-                <div class="prod-row">
-                  <span>Bio Link Target</span>
-                  <a class="prod-link" href="https://nahiahome.com" target="_blank">nahiahome.com ↗</a>
-                </div>
-                <div class="prod-row">
-                  <span>Video Format</span>
-                  <span style="color:var(--muted);">9:16 Vertical MP4 + Audio AAC Estéreo</span>
-                </div>
-              </div>
-            </div>
-
-            <button class="btn-post" onclick="publishTikTok()">
-              <span>✦ Click to Post on TikTok</span>
-            </button>
-
-            <div class="btn-secondary-row">
-              <button class="btn-outline" onclick="copyText('ttCaptionInput', 'TikTok caption copiado!')">📋 Copy Caption</button>
-              <button id="ttDownloadBtn" class="btn-outline" onclick="downloadVideo()">🎵 TikTok MP4 (con Música)</button>
+              <button id="igReelDownloadBtn" class="btn-outline" style="display:none; width:100%; margin-top:8px;" onclick="downloadIgVideo()">🎵 Download 9:16 AI Video (MP4)</button>
             </div>
           </div>
         </div>
@@ -1269,7 +1203,6 @@
       const p = posts[currentDayIdx];
       const slides = p.ig_slides;
       document.getElementById('igActiveSlide').src = slides[currentSlideIdx];
-      document.getElementById('ttPhotoSlide').src = slides[currentSlideIdx];
       document.getElementById('igSlideCounter').textContent = `${currentSlideIdx + 1} / ${slides.length}`;
 
       document.getElementById('igDots').innerHTML = slides.map((_, i) => `
@@ -1310,23 +1243,9 @@
       else vid.pause();
     }
 
-    function setTtMode(mode) {
-      ttMode = mode;
-      document.getElementById('ttTabVideo').classList.toggle('active', mode === 'video');
-      document.getElementById('ttTabPhoto').classList.toggle('active', mode === 'photo');
-      const vid = document.getElementById('ttVideoPlayer');
-      const img = document.getElementById('ttPhotoSlide');
-      vid.style.display = mode === 'video' ? 'block' : 'none';
-      img.style.display = mode === 'photo' ? 'block' : 'none';
-      if (mode === 'video') vid.play().catch(() => {});
-      else vid.pause();
-    }
-
     function syncCaptions() {
       const igCap = document.getElementById('igCaptionInput').value;
-      const ttCap = document.getElementById('ttCaptionInput').value;
       document.getElementById('igCaptionMini').innerHTML = `<b>nahiahome</b> ${igCap.replace(/\n/g, '<br>')}`;
-      document.getElementById('ttOverlayCaption').textContent = ttCap;
     }
 
     function copyToClipboard(text) {
@@ -1361,10 +1280,10 @@
       copyToClipboard(caption);
 
       // 3. Download appropriate media
-      if (igMode === "reel") {
+      if (igMode === "reel" && p.video_url) {
         downloadIgVideo();
       } else {
-        downloadCurrentSlide();
+        downloadAllSlides();
       }
 
       // 4. Notify local backend if available
@@ -1376,12 +1295,12 @@
         }).catch(() => {});
       }
 
-      showToast("✅ Archivo descargado y caption copiado. Abriendo Instagram... ¡Pega el texto con Cmd+V!");
+      showToast("✅ Slides descargadas y caption copiado. Abriendo Instagram... ¡Pega el texto con Cmd+V!");
     }
 
     function publishTikTok() {
       const p = posts[currentDayIdx];
-      const caption = document.getElementById("ttCaptionInput").value;
+      const caption = document.getElementById("igCaptionInput").value;
 
       // 1. Open TikTok Studio in a new tab immediately
       window.open("https://www.tiktok.com/tiktokstudio/upload", "_blank");
@@ -1389,19 +1308,23 @@
       // 2. Copy caption to clipboard
       copyToClipboard(caption);
 
-      // 3. Download the 9:16 Video MP4 file
-      downloadVideo();
+      // 3. Download the slides or AI video
+      if (igMode === "reel" && p.video_url) {
+        downloadIgVideo();
+      } else {
+        downloadAllSlides();
+      }
 
       // 4. Notify local backend if available
       if (!location.hostname.includes("github.io")) {
         fetch("/api/publish/tiktok", {
           method: "POST",
           headers: {"Content-Type": "application/json"},
-          body: JSON.stringify({ day: p.day, caption, mode: ttMode })
+          body: JSON.stringify({ day: p.day, caption, mode: igMode })
         }).catch(() => {});
       }
 
-      showToast("✅ Video descargado y caption copiado. Abriendo TikTok Studio... ¡Arrastra el video y pulsa Cmd+V!");
+      showToast("✅ Slides descargadas y caption copiado. Abriendo TikTok Studio... ¡Arrastra las fotos y pulsa Cmd+V!");
     }
 
     async function revealInFinder() {
@@ -1441,7 +1364,7 @@
             day: p.day,
             status: newStatus,
             ig_caption: document.getElementById("igCaptionInput").value,
-            tiktok_caption: document.getElementById("ttCaptionInput").value
+            tiktok_caption: document.getElementById("igCaptionInput").value
           })
         }).catch(() => {});
       }
