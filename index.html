@@ -1015,7 +1015,8 @@
       } catch (e) {}
 
       renderCalendarStrip();
-      selectDay(0);
+      const firstVideoIdx = posts.findIndex(p => Boolean(p.video_url));
+      selectDay(firstVideoIdx !== -1 ? firstVideoIdx : 0);
     }
 
     function downloadCurrentSlide() {
@@ -1095,7 +1096,10 @@
             <span>${p.weekday}</span>
             <span class="day-dot ${p.status === 'PUBLISHED' ? 'done' : ''}" title="${p.status}"></span>
           </div>
-          <img class="day-thumb" src="${p.ig_slides[0]}" alt="${p.title}" />
+          <div style="position:relative;">
+            <img class="day-thumb" src="${p.ig_slides[0]}" alt="${p.title}" />
+            ${p.video_url ? `<span style="position:absolute; top:6px; left:6px; background:#2C3628; color:#FAF7F2; font-size:9px; letter-spacing:0.12em; padding:4px 7px; border-radius:4px; font-weight:600; box-shadow:0 2px 6px rgba(0,0,0,0.2);">✦ 9:16 AI VIDEO</span>` : ''}
+          </div>
           <div style="font-size:9.5px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;">${p.edit_number}</div>
           <div class="day-title">${p.title}</div>
         </div>
@@ -1166,7 +1170,9 @@
       const igReelDl = document.getElementById('igReelDownloadBtn');
       if (igReelDl) igReelDl.style.display = hasVideo ? 'block' : 'none';
 
-      if (!hasVideo && igMode === 'reel') {
+      if (hasVideo) {
+        setIgMode('reel');
+      } else {
         setIgMode('carousel');
       }
 
