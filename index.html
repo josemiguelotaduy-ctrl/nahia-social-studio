@@ -1061,6 +1061,7 @@
     function togglePreviewAudio() {
       const igVid = document.getElementById('igReelVideo');
       const btn = document.getElementById('soundToggleBtn');
+      const p = posts[currentDayIdx];
       if (!igVid) return;
       const nowMuted = !igVid.muted;
       igVid.muted = nowMuted;
@@ -1068,7 +1069,7 @@
         igVid.volume = 0.9;
         igVid.play().catch(() => {});
         if (btn) btn.textContent = '🔇 Mute Music';
-        showToast('🎵 Playing embedded soundtrack (Claude Debussy — Clair de Lune + Tea Pour)');
+        showToast(`🎵 Playing embedded soundtrack: ${p ? p.audio_suggestion : ''}`);
       } else {
         if (btn) btn.textContent = '🔊 Play with Music';
       }
